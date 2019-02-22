@@ -80,9 +80,9 @@ class LinearRegression():
 
     def display_cost(self, cost):
         fig = plt.figure()
-        fig.suptitle("Cost function minimization")
+        fig.suptitle("Cost function")
         ax = plt.axes()
-        plt.xlabel("m iterations")
+        plt.xlabel("m")
         plt.ylabel("Mean Squared Error")
         ax.plot(cost)
         plt.show()
