@@ -17,8 +17,8 @@ def run():
                               help="print info") 
     parser.add_argument("-a", "--animation", dest="animation", default=False, action='store_true',
                               help="much wow such waw") 
-    parser.add_argument("-n", "--normalize", dest="normalization", default="mean_normalization",
-            metavar=''.join(norm_ex), help="choose normalize function") 
+    parser.add_argument("-n", "--normalize", dest="normalization", default="mean_normalization", choices=["rescaling", "mean_normalization"],
+            help="choose normalize function") 
     opt = parser.parse_args()
     lr = LinearRegression(display=opt.display, verbose=opt.verbose, feature_scaling=getattr(feature_scaling, opt.normalization))
     if (opt.predict):
