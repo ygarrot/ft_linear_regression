@@ -8,24 +8,18 @@ import os.path
 
 def run():
     parser = argparse.ArgumentParser(description='process linear regression')
-    parser.add_argument("-p", "--predict", dest="predict",
-                             help="predict price from mileage")
     parser.add_argument("-d", "--display", dest="display", default=False, action='store_true',
                              help="display plot and function")
-    parser.add_argument("-v", "--verbose", dest="verbose", default=False, action='store_true',
-                              help="print info") 
     parser.add_argument("-a", "--animation", dest="animation", default=False, action='store_true',
                               help="much wow such waw") 
+    parser.add_argument("file_name", type=str, default="Data.csv", help="file_name")
     parser.add_argument("-n", "--normalize", dest="normalization", default="mean_normalization", choices=["rescaling", "mean_normalization"],
             help="choose normalize function") 
     opt = parser.parse_args()
-    lr = LinearRegression(display=opt.display, verbose=opt.verbose, feature_scaling=getattr(feature_scaling, opt.normalization))
-    if (opt.predict):
-        lr.predict(float(opt.predict), "predict.csv")
-        exit()
+    lr = LinearRegression(display=opt.display, feature_scaling=getattr(feature_scaling, opt.normalization))
     theta = [0, 0]
     predict_path = "predict.csv"
-    points = np.genfromtxt("data.csv", delimiter=",")
+    points = np.genfromtxt(opt.file_name, delimiter=",")
     if (os.path.exists(predict_path)):
         ar = np.genfromtxt(predict_path, delimiter=",")
         theta = ar[0]
