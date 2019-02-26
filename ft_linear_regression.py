@@ -79,7 +79,7 @@ class LinearRegression():
         return theta
 
     def display_cost(self, cost):
-        fig = plt.figure()
+        # fig = plt.figure()
         fig.suptitle("Cost function")
         ax = plt.axes()
         plt.xlabel("m")
@@ -90,8 +90,8 @@ class LinearRegression():
     def display_gradient(self, points, theta):
         mileage = points[:, :1]
         price = points[:, 1:]
-        fig = plt.figure()
-        fig.suptitle('t')
+        # fig = plt.figure()
+        fig.suptitle('linear regression')
         ax = plt.axes()
         plt.xlabel("Mileage")
         plt.ylabel("Price")
@@ -109,12 +109,12 @@ class LinearRegression():
         reg_line = theta[1] * self.feature_scaling(mileage) + theta[0]
         if self.testl is not False:
            self.testl.remove()
-        self.testl, = ax.plot(mileage, reg_line,color='green')
+        self.testl, = ax.plot(mileage, reg_line)#,color='green')
         return line,
 
     def animation(self, points, theta):
         self.points = points
-        self.theta =[0, 0]
+        self.theta = theta
         self.num_iterations = 1
         mileage = points[:, :1]
         price = points[:, 1:]

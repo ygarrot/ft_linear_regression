@@ -7,7 +7,6 @@ from ft_linear_regression import LinearRegression
 import os.path
 
 def run():
-    norm_ex = ["[ ", "rescaling", " | mean_normalization", " ]"]
     parser = argparse.ArgumentParser(description='process linear regression')
     parser.add_argument("-p", "--predict", dest="predict",
                              help="predict price from mileage")
