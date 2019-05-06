@@ -20,13 +20,15 @@ tmpθ0 = learningRate ∗
 1
 m
 mX−1
-i=0
-(estimateP rice(mileage[i]) − price[i])
+i=0 
+(estimate Price(mileage[i]) − price[i]) <br/>
+
 tmpθ1 = learningRate ∗
 1
 m
 mX−1
-i=0
+i=0 <br/>
+
 (estimateP rice(mileage[i]) − price[i]) ∗ mileage[i]
 I let you guess what m is :) <br />
 `Note that the estimatePrice is the same as in our first program, but here it uses` <br />
